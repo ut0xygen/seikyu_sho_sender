@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            margin: 0;
+            size: A4 portrait;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            margin: 0;
+            padding: 0;
+        }
+
+        h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 2mm 5mm;
+            width: 210mm;
+            height: 297mm;
+            font-family: "Noto Sans JP", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 200;
+            font-style: normal;
+            filter: grayscale(1.0);
+        }
+
+        body>main {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        main>article {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main>article>section {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #background {
+            width: calc(100% - 10mm);
+            height: calc(100% - 4mm);
+            position: absolute;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        #title {
+            width: 100%;
+            height: 10%;
+        }
+
+        #claimer_and_claimee {
+            height: 20%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+        }
+
+        #claimer_and_claimee p {
+            margin-left: 5mm;
+        }
+
+        #details {
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+        }
+
+        #details>table {
+            width: 100%;
+            border-collapse: collapse
+        }
+
+        #details>table tr>th,
+        #details>table tr>td {
+            width: 15%;
+            padding: 1mm;
+            border-bottom: 1px solid #000;
+            text-align: right;
+        }
+
+        #details>table tr>th {
+            text-align: center;
+        }
+
+        #details>table tr>td:nth-child(1) {
+            text-align: left;
+        }
+
+        #details>table tr>th:nth-child(1),
+        #details>table tr>th:nth-child(2),
+        #details>table tr>th:nth-child(3),
+        #details>table tr>td:nth-child(1),
+        #details>table tr>td:nth-child(2),
+        #details>table tr>td:nth-child(3) {
+            border-right: 1px dashed #888;
+        }
+
+        #details>table tr>td:nth-child(1),
+        #details>table tr>th:nth-child(1) {
+            width: 55%;
+        }
+
+        #details>table>tfoot>tr>th:nth-child(1),
+        #details>table>tfoot>tr>th:nth-child(2),
+        #details>table>tfoot>tr>td:nth-child(1),
+        #details>table>tfoot>tr>td:nth-child(2) {
+            border: none;
+        }
+
+        #details>table>tfoot>tr>th:nth-child(2),
+        #details>table>tfoot>tr>td:nth-child(2) {
+            border-right: 1px dashed #888;
+        }
+
+        #others {
+            width: 100%;
+            height: 15%;
+            display: flex;
+            flex-direction: row;
+            align-items: start;
+        }
+
+        #others>section {
+            width: 50%;
+        }
+
+        #others p {
+            margin-left: 5mm;
+        }
+    </style>
+</head>
+<body>
+    <!-- https://www.svgrepo.com/svg/6249/cat -->
+    <img id="background" alt="logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDQ5MC45NzUgNDkwLjk3NSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGcgaWQ9IlhNTElEXzg5Nl8iPgk8ZyBpZD0iWE1MSURfODI1XyI+IDxwb2x5Z29uIHN0eWxlPSJmaWxsOiNGOUIyMzM7IiBwb2ludHM9IjMwNy42NjUsNDgzLjQ3NSAxMjEuNTE4LDQ4My40NzUgMTIxLjUxOCw2NC42NDQgMTIxLjUxOCwxOC4xMDcgMTc1LjgwOSw2NC42NDQgMjYxLjEyOCw2NC42NDQgMzA3LjY2NSwxOC4xMDcgMzA3LjY2NSw2NC42NDQgIi8+CTwvZz4JPGcgaWQ9IlhNTElEXzg0Nl8iPiA8Y2lyY2xlIHN0eWxlPSJmaWxsOiNGQUQzOTk7IiBjeD0iMjE0LjU5MSIgY3k9IjI4OS41NzIiIHI9IjQ2LjUzNyIvPgk8L2c+CTxnIGlkPSJYTUxJRF85NDJfIj4gPHBvbHlnb24gc3R5bGU9ImZpbGw6I0ZBRDM5OTsiIHBvaW50cz0iMTY4LjA1NCw2NC42NDQgMjE0LjU5MSwxMTguOTM3IDI2MS4xMjgsNjQuNjQ0ICIvPgk8L2c+CTxnIGlkPSJYTUxJRF85NDNfIj4gPHBhdGggc3R5bGU9ImZpbGw6I0ZBRDM5OTsiIGQ9Ik0yNjEuMTI4LDcyLjRoMzEuMDI1VjQxLjM3NkMyOTIuMTUyLDQxLjM3NiwyNjEuMTI4LDczLjI0MSwyNjEuMTI4LDcyLjR6Ii8+CTwvZz4JPGcgaWQ9IlhNTElEXzk0Nl8iPiA8cGF0aCBzdHlsZT0iZmlsbDojRkFEMzk5OyIgZD0iTTEzNy4wMyw0MS4zNzZjMCwwLDMxLjAyNSwzMS44NjUsMzEuMDI1LDMxLjAyNUgxMzcuMDMiLz4JPC9nPgk8ZyBpZD0iWE1MSURfOTQ0XyI+IDxwYXRoIHN0eWxlPSJmaWxsOiNGQUQzOTk7IiBkPSJNMjM3Ljg2LDE0Mi4yMDVjLTcuMzc5LDAtMTQuMDY1LDIuNjgzLTE5LjM5LDYuOTg1Yy01LjMyNS00LjMwMi0xMi4wMTItNi45ODUtMTkuMzktNi45ODUgYy0xNy4xMzUsMC0zMS4wMjUsMTMuODktMzEuMDI1LDMxLjAyNWMwLDE3LjEzNCwxMy44OSwzMS4wMjQsMzEuMDI1LDMxLjAyNGM3LjM3OSwwLDE0LjA2NS0yLjY4MywxOS4zOS02Ljk4NSBjNS4zMjUsNC4zMDIsMTIuMDEyLDYuOTg1LDE5LjM5LDYuOTg1YzE3LjEzNSwwLDMxLjAyNC0xMy44OSwzMS4wMjQtMzEuMDI0QzI2OC44ODQsMTU2LjA5NSwyNTQuOTk0LDE0Mi4yMDUsMjM3Ljg2LDE0Mi4yMDV6Ii8+CTwvZz4JPGc+IDxwb2x5Z29uIHN0eWxlPSJmaWxsOiMxRDFEMUI7IiBwb2ludHM9IjE2OC4zMTEsMzIwLjM0IDE2MC4yOTgsMzIwLjM0IDE2MC4yOTgsMzA1LjM0IDE4My4zMTEsMzA1LjM0IDE4My4zMTEsNDc1Ljk3NSAxOTkuMDc5LDQ3NS45NzUgMTk5LjA3OSw0OTAuOTc1IDE2OC4zMTEsNDkwLjk3NSAiLz4gPHBvbHlnb24gc3R5bGU9ImZpbGw6IzFEMUQxQjsiIHBvaW50cz0iMjYwLjg3MiwzMjAuMzQgMjY4Ljg4NCwzMjAuMzQgMjY4Ljg4NCwzMDUuMzQgMjQ1Ljg3MiwzMDUuMzQgMjQ1Ljg3Miw0NzUuOTc1IDIzMC4xMDQsNDc1Ljk3NSAyMzAuMTA0LDQ5MC45NzUgMjYwLjg3Miw0OTAuOTc1ICIvPgk8L2c+CTxnIGlkPSJYTUxJRF8yMV8iPiA8cmVjdCB4PSIxNjguMDU0IiB5PSIxMTEuNDM3IiBzdHlsZT0iZmlsbDojMUQxRDFCOyIgd2lkdGg9IjE1LjUxMyIgaGVpZ2h0PSIxNSIvPgk8L2c+CTxnIGlkPSJYTUxJRF8yMl8iPiA8cmVjdCB4PSIyNDUuNjE2IiB5PSIxMTEuNDM3IiBzdHlsZT0iZmlsbDojMUQxRDFCOyIgd2lkdGg9IjE1LjUxMyIgaGVpZ2h0PSIxNSIvPgk8L2c+CTxnPiA8cG9seWdvbiBzdHlsZT0iZmlsbDojMUQxRDFCOyIgcG9pbnRzPSIxOTkuMDc5LDE1Ny40NjIgMjA3LjA5MSwxNTcuNDYyIDIwNy4wOTEsMTgwLjk4NiAyMjIuMDkxLDE4MC45ODYgMjIyLjA5MSwxNTcuNDYyIDIzMC4xMDQsMTU3LjQ2MiAyMzAuMTA0LDE0Mi40NjIgMTk5LjA3OSwxNDIuNDYyICIvPiA8cG9seWdvbiBzdHlsZT0iZmlsbDojMUQxRDFCOyIgcG9pbnRzPSIzODUuMjI2LDE2NS4yMTggMzg1LjIyNiwxNTAuMjE4IDMxNS4xNjQsMTUwLjIxOCAzMTUuMTY0LDAgMjU4LjAyMiw1Ny4xNDQgMTcxLjE2LDU3LjE0NCAxMTQuMDE4LDAgMTE0LjAxOCwxNTAuMjE4IDQzLjk1NiwxNTAuMjE4IDQzLjk1NiwxNjUuMjE4IDExNC4wMTgsMTY1LjIxOCAxMTQuMDE4LDE3My40ODYgOTAuNDkzLDE3My40ODYgOTAuNDkzLDE4OC40ODYgMTE0LjAxOCwxODguNDg2IDExNC4wMTgsNDkwLjk3NSAxNjAuMjk4LDQ5MC45NzUgMTYwLjI5OCw0NzUuOTc1IDEyOS4wMTgsNDc1Ljk3NSAxMjkuMDE4LDE4OC40ODYgMTgzLjU2NywxODguNDg2IDE4My41NjcsMTczLjQ4NiAxMjkuMDE4LDE3My40ODYgMTI5LjAxOCwxNjUuMjE4IDE4My41NjcsMTY1LjIxOCAxODMuNTY3LDE1MC4yMTggMTI5LjAxOCwxNTAuMjE4IDEyOS4wMTgsMzYuMjE0IDE2NC45NDcsNzIuMTQ0IDI2NC4yMzUsNzIuMTQ0IDMwMC4xNjQsMzYuMjE0IDMwMC4xNjQsMTUwLjIxOCAyNDUuNjE1LDE1MC4yMTggMjQ1LjYxNSwxNjUuMjE4IDMwMC4xNjQsMTY1LjIxOCAzMDAuMTY0LDE3My40ODYgMjQ1LjYxNSwxNzMuNDg2IDI0NS42MTUsMTg4LjQ4NiAzMDAuMTY0LDE4OC40ODYgMzAwLjE2NCw0NzUuOTc1IDI2OC44ODQsNDc1Ljk3NSAyNjguODg0LDQ5MC45NzUgMzE1LjE2NCw0OTAuOTc1IDMxNS4xNjQsMTg4LjQ4NiAzMzguNjksMTg4LjQ4NiAzMzguNjksMTczLjQ4NiAzMTUuMTY0LDE3My40ODYgMzE1LjE2NCwxNjUuMjE4ICIvPgk8L2c+CTxnIGlkPSJYTUxJRF81MF8iPiA8cGF0aCBzdHlsZT0iZmlsbDojMUQxRDFCOyIgZD0iTTMzOC42OSw0OTAuOTc1aC0xNS41MTN2LTE1aDE1LjUxM2M4LjY5NCwwLDE1Ljc2OS03LjA3NCwxNS43NjktMTUuNzY4VjMxMi44NCBjMC0yNS41MiwyMC43NjItNDYuMjgxLDQ2LjI4LTQ2LjI4MWMyNS41MTksMCw0Ni4yOCwyMC43NjEsNDYuMjgsNDYuMjgxaC0xNWMwLTE3LjI0OC0xNC4wMzItMzEuMjgxLTMxLjI4LTMxLjI4MSBzLTMxLjI4LDE0LjAzMy0zMS4yOCwzMS4yODF2MTQ3LjM2N0MzNjkuNDU4LDQ3Ny4xNzIsMzU1LjY1NSw0OTAuOTc1LDMzOC42OSw0OTAuOTc1eiIvPgk8L2c+PC9nPjwvc3ZnPg==" />
+    <main>
+        <article>
+            <!-- タイトル -->
+            <section id="title">
+                <h2>請求書</h2>
+                <p>（{claim_date_ym}）</p>
+                <section style="position: absolute; left: 5mm; top: 2mm;">
+                    <p>{today_date_ymd}</p>
+                    <p style="font-size: 0.6rem;">{hash}</p>
+                </section>
+            </section>
+
+            <!-- 請求元・請求先 -->
+            <section id="claimer_and_claimee">
+                <section>
+                    <h3>請求元</h3>
+                    <p>{claimer_name_long}</p>
+                    <p>{claimer_address}</p>
+                    <section style="margin-top: 2mm;">
+                        <p>{claimer_email}</p>
+                        <p>{claimer_phone}</p>
+                    </section>
+                </section>
+
+                <section>
+                    <h3>請求先</h3>
+                    <p>{claimee_name_long}</p>
+                </section>
+            </section>
+
+            <!-- 明細 -->
+            <section id="details">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>項目</th>
+                            <th>単価</th>
+                            <th>数量</th>
+                            <th>金額</th>
+                        </tr>
+                    </thead>
+                    <tbody>{details}</tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <th>合計（内税）</th>
+                            <td>{sum}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+
+            <!-- その他 -->
+            <section id="others">
+                <section id="payee">
+                    <h3>支払先</h3>
+                    <p>{payee}</p>
+                    <section style="margin-top: 2mm;">
+                        <p style="text-decoration: underline">期限: {claim_due_date_ymd}</p>
+                    </section>
+                </section>
+                <section id="message">
+                    <h3>備考</h3>
+                    <p>{note}</p>
+                </section>
+            </section>
+        </article>
+    </main>
+</body>
+</html>

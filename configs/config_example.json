@@ -1,0 +1,23 @@
+{
+  "claimer_name_long": "Example Taro（Example inc.）",
+  "claimer_name_short": "Example",
+  "claimer_email": "taro.example@examlpe.com",
+  "claimer_phone": "080-1234-5678",
+  "claimer_address": "〒163-8001\n東京都新宿区\n西新宿2-8-1",
+  "claimee_name_long": "AA",
+  "claimee_name_short": "AA",
+  "claimee_email": "aa@example.com",
+  "payee": "XX銀行（0000）\nYY支店（）\n普通預金 ZZZZZZZ\nAA",
+  "note": "この度は弊サービスをご利用くださいまして誠にありがとうございます。",
+  "signature": "例 太郎 (イグザンプル タロウ)\nEmail: taro.example@examile.com\nPhone: 080-1234-5678",
+
+  "claim_date_ym": "2025/01",
+  "claim_due_date_ymd": "2025年01月31日",
+  "details": [
+    {
+      "name": "商品",
+      "unit": 10000,
+      "qty": 100
+    }
+  ]
+}
